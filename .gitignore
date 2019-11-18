@@ -7,6 +7,8 @@
 
 # testing
 /coverage
+App.test.js
+selenium.test.py
 
 # production
 /build

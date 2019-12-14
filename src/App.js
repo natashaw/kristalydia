@@ -1,97 +1,70 @@
 import React, {Component} from 'react';
-import {Controller, Scene} from 'react-scrollmagic';
+import {Container, Row, Col} from 'react-bootstrap';
 import {Tween, Timeline, Controls} from 'react-gsap';
-import styled from 'styled-components';
+import Plx from 'react-plx';
 import './App.scss';
 
-import logo from './assets/img/logo.png';
-import one from './assets/img/one.png';
-import two from './assets/img/two.png';
+import { Sidebar } from './assets/js/Sidebar';
 
+import welcome from './assets/img/welcome.gif';
 
-const TweenStyled = styled.div`
-    .section {
-        height: 100vh;
-    }
-
-    .mario {
-        transition: width 0.3s ease-out;
-        width: 200px;
-        height: 100px;
-        top: 500px;
-        position: absolute;
-        background-image: url(${one});
-        background-size: 200px
-
-        &.hello{
-            left: 400px;
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background-image: url(${two});
-            background-size: 200px
-        }
-    }
-`;
-
-const TweenComponent = () => (
-    <TweenStyled>
-        <div className="section" />
-        <div id="trigger" />
-        <Controller>
-            <Scene
-                triggerElemet="#trigger"
-                duration={150}
-                offset={50}
-                indicators={true}
+const Homepage = () => (<Container fluid>
+    <Row id="header">
+        {/* logo */}
+        <Col id="containers">
+            <Tween from={{
+                    opacity: 0,
+                    y: -32
+                }} to={{
+                    opacity: 1,
+                    y: 0
+                }} duration={1} delay={1}>
+                <a href="#"><div className="logo"/></a>
+            </Tween>
+        </Col>
+    </Row>
+    <Row id="animation">
+        {/* welcome gif */}
+        <Col id="containers">
+            <Tween from={{
+                    opacity: 0,
+                    y: -32
+                }} to={{
+                    opacity: 1,
+                    y: 0
+                }} duration={1}>
+                <div className="welcomeGif">
+                    <img src={welcome}/>
+                </div>
+            </Tween>
+        </Col>
+    </Row>
+    <Row>
+        <Col id="containers">
+            <Tween from={{
+                    opacity: 0,
+                    y: 0
+                }} to={{
+                    opacity: 1,
+                    y: 30
+                }} duration={0.5}
+                delay={2}
+                repeat={-1}
+                yoyo={true}
             >
-            {(progress) => (
-                <Timeline
-                    target={
-                        <div className="mario"></div>
-                    }
-                    repeat={0}
-                    duration={10}
-                    totalProgress={progress}
-                    paused
-                >
-                    <Tween
-                        from={{ x: '0px'}}
-                        to={{ x: '400px'}}
-                        ease="Linear.easeOut"
-                    />
-                    <Tween
-                        to={{ opacity: 0 }}
-                        ease="Strong.easeOut"
-                        delay={0.1}
-                    />
-                </Timeline>
-            )}
-            </Scene>
-            <div id="trigger1" />
-            <Scene
-                triggerElemet="#trigger1"
-                offset={-280}
-                classToggle={['.mario', 'hello']}
-                indicators={true}
-            >
-                <Tween
-                    from={{ opacity: 0 }}
-                    to={{ opacity: 1 }}
-                >
-                    <div className="mario"></div>
-                </Tween>
-            </Scene>
-        </Controller>
-        <div className="section" />
-
-    </TweenStyled>
-);
+                <div className="scrollButton"/>
+            </Tween>
+        </Col>
+    </Row>
+</Container>);
 
 class App extends Component {
     render() {
         return (
-            <TweenComponent />
+            <div>
+                <Homepage/>
+                <Sidebar/>
+            </div>
         );
     }
 }

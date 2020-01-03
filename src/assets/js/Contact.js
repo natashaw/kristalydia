@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {Button, Form, Jumbotron} from 'react-bootstrap';
+import {Button, Container, Form} from 'react-bootstrap';
+
+import '../../App.scss';
 
 const Emoji = props => (<span className="emoji" role="img" aria-label={props.label
         ? props.label
@@ -16,7 +18,7 @@ const validateForm = (errors) => {
     return valid;
 }
 
-export class Contact extends Component {
+class Contact extends Component {
 
     constructor(props) {
         super(props);
@@ -72,7 +74,7 @@ export class Contact extends Component {
     render() {
         const {errors} = this.state;
 
-        return (<Jumbotron>
+        return (<Container>
             <h2>Don't be a stranger
                 <Emoji symbol="🙋‍♀️"/></h2>
             <br/>
@@ -99,10 +101,11 @@ export class Contact extends Component {
                         Submit
                     </Button>
                 </Form>
-            </Jumbotron>)
+            </Container>)
             //TODO: Message for successful message submission
             //TODO: Protection from spam
             //TODO: Routing of message to personal inbox
     }
-
 }
+
+export default Contact;

@@ -1,0 +1,26 @@
+
+
+[
+ {
+     "id":1,
+     "title": "Numero Uno" ,
+     "tags": "illustration",
+     "imgUrl": "/posts/project-1.jpg",
+     "behanceUrl" :"https://www.behance.net/gallery/91416383/Culture-Trip-2019-Editorial-Highlights?tracking_source=best_of_behance"
+ },
+ {
+     "id":2,
+     "title": "Secondly" ,
+     "tags": "branding",
+     "imgUrl": "/posts/project-2.jpg",
+     "behanceUrl" :"https://www.behance.net/gallery/91416383/Culture-Trip-2019-Editorial-Highlights?tracking_source=best_of_behance"
+ },
+ {
+     "id":3,
+     "title": "The Next Chapter" ,
+     "tags": "ux",
+     "imgUrl": "/posts/project-3.jpg",
+     "behanceUrl" :"https://www.behance.net/gallery/91416383/Culture-Trip-2019-Editorial-Highlights?tracking_source=best_of_behance"
+ }
+
+]

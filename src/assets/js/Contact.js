@@ -18,6 +18,12 @@ const validateForm = (errors) => {
     return valid;
 }
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+}
+
 class Contact extends Component {
 
     constructor(props) {
@@ -52,7 +58,7 @@ class Contact extends Component {
                 break;
             case 'message':
                 errors.message = value.length < 10
-                    ? 'Minimum number of characters not met'
+                    ? 'Message is too short'
                     : '';
                 break;
             default:
@@ -64,15 +70,22 @@ class Contact extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (validateForm(this.state.errors)) {
-            console.info('Valid Form')
-        } else {
-            console.error('Invalid Form')
-        }
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...this.state })
+        })
+            .then(() => alert("Success!"))
+            .catch(error => alert(error));
+
+        // if (validateForm(this.state.errors)) {
+        //     console.info('Valid Form')
+        // } else {
+        //     console.error('Invalid Form')
     }
 
     render() {
-        const {errors} = this.state;
+        const { fullName, email, message, errors } = this.state;
 
         return (<Container>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405.9 62" enable-background="new 0 0 405.9 62" style={{ position: 'relative', width: '100%' }}>
@@ -94,7 +107,8 @@ class Contact extends Component {
             </svg>
             <div className="sidebarTitle">don't be a stranger, say hello!</div>
             <br/><br/>
-            <Form onSubmit={this.handleSubmit}>
+            <Form name="contact" onSubmit={this.handleSubmit}>
+                <input type="hidden" name="form-name" value="contact" />
                 <Form.Group>
                     <Form.Label>Your Name< /Form.Label>
                         <Form.Control type="text" name="fullName" placeholder="First Name Last Name" required="required" isInvalid={errors.fullName} onChange={this.handleChange}/>
@@ -119,7 +133,6 @@ class Contact extends Component {
                 </Form>
             </Container>)
             //TODO: Message for successful message submission
-            //TODO: Protection from spam
             //TODO: Routing of message to personal inbox
     }
 }

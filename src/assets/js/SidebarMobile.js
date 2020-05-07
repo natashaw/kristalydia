@@ -192,7 +192,6 @@ export class SidebarMobile extends Component {
 
                 <div className="links" style={{ position: 'fixed' }}>
                     <a href="https://www.instagram.com/imeisime/">Instagram</a>
-                    <a href="https://www.instagram.com/imeisime/">Also Instagram</a>
                 </div>
             </div>
 

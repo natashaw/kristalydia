@@ -88,7 +88,7 @@ class Contact extends Component {
         const { fullName, email, message, errors } = this.state;
 
         return (<Container>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405.9 62" enable-background="new 0 0 405.9 62" style={{ position: 'relative', width: '100%' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405.9 62" enable-background="new 0 0 405.9 62" style={{ position: 'relative', width: '40vh' }}>
             	<g>
             		<path d="M61.5,49.5c83.5-0.9,167.1-3.1,250.7-1.5c22.7,0.4,45.7,0.9,68.3-1.7c1.4-0.2,1.4-2.3,0-2.2C340.6,48.6,300,45,260,44.9
             		c-41.9,0-83.9,1.2-125.9,1.7c-24.2,0.3-48.4,0.5-72.7,0.7C60.1,47.4,60.1,49.6,61.5,49.5L61.5,49.5z"/>

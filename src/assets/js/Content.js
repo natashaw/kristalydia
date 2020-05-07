@@ -9,17 +9,16 @@ import data from '../js/projectmap.json';
 
 const CardText = styled.div({
     zIndex: 7,
-    transform: "translate3d(100px,250px,0)",
+    transform: "translate3d(20vw,14vh,0)",
     transition: "transform 350ms ease",
     opacity: 0,
 });
 
 const DisplayOver = styled.div({
-    position: "absolute",
     top: "0",
     left: "0",
     width: "100%",
-    height: "100%",
+    height: "90vh",
     zIndex: 6,
     transition: "background-color 350ms ease",
     backgroundColor: "transparent",
@@ -31,7 +30,7 @@ const Hover = styled.div({
     backgroundColor: "rgba(63,146,191,0.5)",
     },
     [`:hover ${CardText}`]: {
-    transform: "translate3d(100px,200px,0)",
+    transform: "translate3d(20vw,12vh,0)",
     opacity: 1,
     },
 });
@@ -58,29 +57,28 @@ export default class Content extends Component {
         const projectfeed = data.map((data) => {
 
             return (
-                <Hover>
-                    <Plx
-                        className='contentscroll'
-                        parallaxData={ scrollDelay }
-                    >
+                <Plx
+                    className='contentscroll'
+                    parallaxData={ scrollDelay }
+                >
+                    <Hover>
                         <Card key= {data.id} id="post">
                             <Parallax bgImage={data.imgUrl} strength={150}>
                                 <Card.Body className="post">
                                     <DisplayOver>
                                         <CardText>
-                                            <Card.Title><a href={data.behanceUrl}>{data.title}</a></Card.Title>
+                                            <Card.Title style={{ fontSize: '3vh' }}><a href={data.behanceUrl}>{data.title}</a></Card.Title>
                                             <Card.Text>
                                                 {/*TODO: fix responsiveness of card width*/}
                                                 <h2><Badge variant="success">{data.tags}</Badge></h2>
                                             </Card.Text>
                                         </CardText>
                                     </DisplayOver>
-
                                 </Card.Body>
                             </Parallax>
                         </Card>
-                    </Plx>
-                </Hover>
+                    </Hover>
+                </Plx>
             )
         })
 

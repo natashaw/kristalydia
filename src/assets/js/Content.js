@@ -17,7 +17,7 @@ const CardText = styled.div({
 const DisplayOver = styled.div({
     top: "0",
     left: "0",
-    width: "100%",
+    width: "100vw",
     height: "90vh",
     zIndex: 6,
     transition: "background-color 350ms ease",
@@ -27,7 +27,7 @@ const DisplayOver = styled.div({
 const Hover = styled.div({
     cursor: "pointer",
     [`:hover ${DisplayOver}`]: {
-    backgroundColor: "rgba(63,146,191,0.5)",
+    backgroundColor: "rgba(60, 66, 66, 0.5)",
     },
     [`:hover ${CardText}`]: {
     transform: "translate3d(20vw,12vh,0)",
@@ -67,10 +67,10 @@ export default class Content extends Component {
                                 <Card.Body className="post">
                                     <DisplayOver>
                                         <CardText>
-                                            <Card.Title style={{ fontSize: '3vh' }}><a href={data.behanceUrl}>{data.title}</a></Card.Title>
+                                            <Card.Title style={{ fontSize: '3vh', fontWeight: '1000' }}><a href={data.behanceUrl}>{data.title}</a></Card.Title>
                                             <Card.Text>
                                                 {/*TODO: fix responsiveness of card width*/}
-                                                <h2><Badge variant="success">{data.tags}</Badge></h2>
+                                                <h2><Badge variant="dark">{data.tags}</Badge></h2>
                                             </Card.Text>
                                         </CardText>
                                     </DisplayOver>

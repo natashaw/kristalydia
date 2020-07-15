@@ -6,7 +6,8 @@
 .pnp.js
 
 # testing
-/cypress/integration/examples
+/cypress
+cypress.json
 
 # production
 /build
@@ -17,7 +18,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
-package-lock.json
 
 npm-debug.log*
 yarn-debug.log*

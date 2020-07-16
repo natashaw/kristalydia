@@ -1,0 +1,42 @@
+image: node:8.16.1
+
+cache:
+  untracked: true
+  paths:
+    - node_modules/
+
+stages:
+  - setup
+  - build
+  - deploy
+
+setup:
+  stage: setup
+  script:
+    - echo "installing npm packages ..."
+    - npm ci
+  only:
+    - master
+
+build:
+  stage: build
+  script:
+    - echo "starting build ..."
+    - npm run build
+  artifacts:
+    paths:
+      - build
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - npm i -g netlify-cli
+    - echo "deploying to netlify ..."
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+    - echo "deployment successful!"
+  dependencies:
+    - build
+  only:
+    - master

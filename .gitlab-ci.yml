@@ -22,7 +22,7 @@ build:
   stage: build
   script:
     - echo "starting build ..."
-    - npm run build
+    - CI=false npm run build
   artifacts:
     paths:
       - build

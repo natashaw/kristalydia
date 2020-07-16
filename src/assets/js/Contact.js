@@ -29,9 +29,9 @@ class Contact extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fullName: null,
-            email: null,
-            message: null,
+            fullName: '',
+            email: '',
+            message: '',
             errors: {
                 fullName: '',
                 email: '',
@@ -77,11 +77,6 @@ class Contact extends Component {
         })
             .then(() => alert("Success!"))
             .catch(error => alert(error));
-
-        // if (validateForm(this.state.errors)) {
-        //     console.info('Valid Form')
-        // } else {
-        //     console.error('Invalid Form')
     }
 
     render() {
@@ -108,7 +103,6 @@ class Contact extends Component {
             <div className="sidebarTitle">don't be a stranger, say hello!</div>
             <br/><br/>
             <Form name="contact" onSubmit={this.handleSubmit}>
-                <input type="hidden" name="form-name" value="contact" />
                 <Form.Group>
                     <Form.Label>Your Name< /Form.Label>
                         <Form.Control type="text" name="fullName" placeholder="First Name Last Name" required="required" isInvalid={errors.fullName} onChange={this.handleChange}/>
@@ -132,7 +126,6 @@ class Contact extends Component {
                     </Button>
                 </Form>
             </Container>)
-            //TODO: Message for successful message submission
             //TODO: Routing of message to personal inbox
     }
 }

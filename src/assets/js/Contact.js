@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Container, Form} from 'react-bootstrap';
+import ReCAPTCHA from "react-google-recaptcha";
 
 import '../../App.scss';
 
@@ -75,7 +76,7 @@ class Contact extends Component {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...this.state })
         })
-            .then(() => alert("Success!"))
+            .then(() => alert("Inquiry submitted. Thank you!"))
             .catch(error => alert(error));
     };
 
@@ -122,6 +123,7 @@ class Contact extends Component {
                         <Form.Control as="textarea" name="message" rows="5" required="required" isInvalid={errors.message} onChange={this.handleChange}/>
                         <Form.Control.Feedback type="invalid">{errors.message}</Form.Control.Feedback>
                     </Form.Group>
+                    <ReCAPTCHA sitekey="6LduYbIZAAAAAAWIqdPc_tf9DwtxMtw3I2yOxYph" />
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>

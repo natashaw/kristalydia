@@ -77,7 +77,7 @@ class Contact extends Component {
         })
             .then(() => alert("Success!"))
             .catch(error => alert(error));
-    }
+    };
 
     render() {
         const { fullName, email, message, errors } = this.state;
@@ -102,7 +102,8 @@ class Contact extends Component {
             </svg>
             <div className="sidebarTitle">don't be a stranger, say hello!</div>
             <br/><br/>
-            <Form name="contact" onSubmit={this.handleSubmit}>
+            <Form name="contact" onSubmit={this.handleSubmit} data-netlify="true" method="post">
+                <input type="hidden" name="form-name" value="contact" />
                 <Form.Group>
                     <Form.Label>Your Name< /Form.Label>
                         <Form.Control type="text" name="fullName" placeholder="First Name Last Name" required="required" isInvalid={errors.fullName} onChange={this.handleChange}/>

@@ -30,11 +30,11 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <!-- A little help for the Netlify post-processing bots -->
-    <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true" hidden>
-        <input type="text" name="fullName" />
-        <input type="email" name="email"  />
-        <textarea name="message"></textarea>
-        <div data-netlify-recaptcha="true"></div>
+    <form name="contact" netlify data-netlify-recaptcha="true"  hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <div data-netlify-recaptcha="true"></div>
     </form>
 
     <div id="root"></div>

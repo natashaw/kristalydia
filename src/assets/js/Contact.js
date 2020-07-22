@@ -72,7 +72,7 @@ class Contact extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const form = e.target;
+        const form = event.target;
         fetch("/", {
             method: "POST",
             headers: {

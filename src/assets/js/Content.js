@@ -9,7 +9,7 @@ import data from '../js/projectmap.json';
 
 const CardText = styled.div({
     zIndex: 7,
-    transform: "translate3d(20vw,14vh,0)",
+    transform: "translate3d(10vw,48vh,0)",
     transition: "transform 350ms ease",
     opacity: 0,
 });
@@ -30,7 +30,7 @@ const Hover = styled.div({
     backgroundColor: "rgba(60, 66, 66, 0.5)",
     },
     [`:hover ${CardText}`]: {
-    transform: "translate3d(20vw,12vh,0)",
+    transform: "translate3d(10vw,46vh,0)",
     opacity: 1,
     },
 });
@@ -69,7 +69,6 @@ export default class Content extends Component {
                                         <CardText>
                                             <Card.Title style={{ fontSize: '3vh', fontWeight: '1000' }}><a href={data.behanceUrl}>{data.title}</a></Card.Title>
                                             <Card.Text>
-                                                {/*TODO: fix responsiveness of card width*/}
                                                 <h2><Badge variant="dark">{data.tags}</Badge></h2>
                                             </Card.Text>
                                         </CardText>
